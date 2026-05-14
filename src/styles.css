@@ -5,8 +5,12 @@
 }
 
 body {
-  font-family: sans-serif;
-  background-color: #1a1a2e;
+  font-family: 'Segoe UI', sans-serif;
+  /* background-color: #0f0f1a; */
+  background-image: url('./asset/images/background.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
   color: #e0e0e0;
   min-height: 100vh;
   padding: 2rem;
@@ -14,112 +18,240 @@ body {
 
 h1 {
   text-align: center;
-  font-size: 2rem;
+  font-size: 2.2rem;
   margin-bottom: 1.5rem;
-  color: #a8d8ea;
+  color: #ffffff;
+  letter-spacing: 0.05em;
 }
 
-#gifSearch {
+/* --- SEARCH BAR --- */
+
+#searchBar {
   display: flex;
   justify-content: center;
   gap: 0.5rem;
-  margin-bottom: 2rem;
+  margin-bottom: 2.5rem;
 }
 
 #research {
-  padding: 0.5rem 1rem;
-  border: none;
-  border-radius: 8px;
+  padding: 0.6rem 1.2rem;
+  border: 1px solid #2a2a4a;
+  border-radius: 24px;
   font-size: 1rem;
-  width: 250px;
-  background-color: #16213e;
+  width: 260px;
+  background-color: #1a1a2e;
   color: #e0e0e0;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+#research:focus {
+  border-color: #a8d8ea;
 }
 
 #research::placeholder {
-  color: #888;
+  color: #555;
 }
 
 #submitResearch {
-  padding: 0.5rem 1rem;
+  padding: 0.6rem 1.4rem;
   border: none;
-  border-radius: 8px;
+  border-radius: 24px;
   background-color: #a8d8ea;
-  color: #1a1a2e;
+  color: #0f0f1a;
   font-size: 1rem;
+  font-weight: 600;
   cursor: pointer;
+  transition: background-color 0.2s;
 }
 
 #submitResearch:hover {
   background-color: #78c1d8;
 }
 
+/* --- MAIN METEO --- */
+
 #mainMeteo {
-  max-width: 900px;
-  margin: 0 auto;
+  max-width: 860px;
+  margin: 0 auto 2.5rem;
 }
 
-#mainMeteo > div:first-child {
+#top {
   text-align: center;
-  margin-bottom: 1rem;
+  margin-bottom: 1.25rem;
 }
 
-#mainMeteo h2 {
-  font-size: 1.8rem;
-  color: #a8d8ea;
+#cityAndFav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 0.3rem;
+  background-color: rgba(0, 0, 0, 0.15);
+  border-radius: 25px;
 }
 
-#mainMeteo h3 {
-  font-size: 0.9rem;
-  color: #888;
-  margin-top: 0.25rem;
+#cityAndFav h2 {
+  font-size: 2rem;
+  color: #ffffff;
+  font-weight: 700;
 }
 
-#mainMeteo > div:nth-child(2) {
-  background-color: #16213e;
-  border-radius: 12px;
-  padding: 1.5rem;
-  margin-bottom: 2rem;
+#favCase {
+  display: none;
+}
+
+#favCase + label {
+  font-size: 1.6rem;
+  cursor: pointer;
+  color: #444;
+  transition:
+    color 0.2s,
+    transform 0.15s;
+  line-height: 1;
+}
+
+#favCase + label:hover {
+  transform: scale(1.2);
+}
+
+#favCase + label::before {
+  content: '♡';
+}
+
+#favCase:checked + label::before {
+  content: '♥';
+  color: #e74c3c;
+}
+
+#top h3 {
+  font-size: 0.85rem;
+  color: #666;
+  letter-spacing: 0.03em;
+}
+
+/* --- CURRENT CONDITIONS --- */
+
+#information {
+  background-color: #1a1a2e;
+  border: 1px solid #2a2a4a;
+  border-radius: 16px;
+  padding: 1.5rem 2rem;
+  margin-bottom: 1.5rem;
   display: flex;
   gap: 2rem;
   flex-wrap: wrap;
 }
 
-#mainMeteo > div:nth-child(2) p {
-  font-size: 1rem;
+#information p {
+  font-size: 0.95rem;
+  color: #ccc;
 }
+
+#information p span {
+  color: #a8d8ea;
+  font-weight: 600;
+}
+
+/* --- WEEK --- */
 
 #week {
   display: flex;
-  flex-direction: row;
-  gap: 0.75rem;
+  gap: 0.6rem;
   overflow-x: auto;
+  padding-bottom: 0.5rem;
+}
+
+#week::-webkit-scrollbar {
+  height: 4px;
+}
+
+#week::-webkit-scrollbar-thumb {
+  background-color: #2a2a4a;
+  border-radius: 4px;
 }
 
 #week > div {
-  background-color: #16213e;
-  border-radius: 12px;
-  padding: 1rem;
+  background-color: #1a1a2e;
+  border: 1px solid #2a2a4a;
+  border-radius: 14px;
+  padding: 1rem 0.75rem;
   flex: 1;
-  min-width: 100px;
+  min-width: 105px;
   text-align: center;
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
+  gap: 0.4rem;
+  transition: border-color 0.2s;
+}
+
+#week > div:hover {
+  border-color: #a8d8ea;
 }
 
 #week > div p:first-child {
-  font-size: 0.85rem;
-  color: #888;
+  font-size: 0.78rem;
+  color: #666;
 }
 
 #week > div p:nth-child(2) {
-  font-size: 1rem;
-  font-weight: bold;
+  font-size: 0.95rem;
+  font-weight: 700;
   color: #a8d8ea;
 }
 
 #week > div p:last-child {
-  font-size: 0.8rem;
-  color: #aaa;
+  font-size: 0.75rem;
+  color: #888;
+}
+
+/* --- FAVOURITES --- */
+
+#favourite {
+  max-width: 860px;
+  margin: 0 auto;
+}
+
+#favourite > #top h1 {
+  font-size: 1.3rem;
+  margin-bottom: 1rem;
+  color: #837b7b;
+  letter-spacing: 0.05em;
+  background-color: rgba(0, 0, 0, 0.05);
+  border-radius: 25px;
+  border-bottom: solid 1px #837b7b;
+}
+
+#favouriteContainer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+#card {
+  background-color: #1a1a2e;
+  border: 1px solid #2a2a4a;
+  border-radius: 14px;
+  padding: 1rem 1.25rem;
+  min-width: 140px;
+  cursor: pointer;
+  transition:
+    border-color 0.2s,
+    transform 0.15s;
+}
+
+#card:hover {
+  border-color: #a8d8ea;
+  transform: translateY(-2px);
+}
+
+#card h2 {
+  font-size: 1rem;
+  color: #a8d8ea;
+  margin-bottom: 0.3rem;
+}
+
+#card p {
+  font-size: 0.85rem;
+  color: #888;
 }
