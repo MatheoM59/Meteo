@@ -19,6 +19,7 @@ export default {
       template: './src/template.html',
     }),
   ],
+  performance: false,
   module: {
     rules: [
       {
