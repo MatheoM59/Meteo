@@ -6,8 +6,8 @@ export const display = async () => {
   content.innerHTML = `
     <h1>Meteo</h1>
     <div id='searchBar'>
-        <input type='text' id='research' placeholder='Put your location'/>
-        <input type='submit' id='submitResearch'/>
+      <input type='text' id='research' placeholder='Put your location'/>
+      <input type='submit' id='submitResearch' value='Search'/> 
     </div>
     <div id='mainMeteo'>
     </div>
