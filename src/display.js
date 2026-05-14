@@ -33,7 +33,7 @@ const renderMain = (weatherData) => {
         <input id='favCase' type='checkbox' data-city='${weatherData.city}'/>
         <label for='favCase'></label>
       </div>
-      <h3>Zone horaire : ${weatherData.timezone}</h3>
+      <h3>Time zone : ${weatherData.timezone}</h3>
     </div>
     <div id='information'>
       <p>Temp : ${weatherData.current.temp}C°</p>
